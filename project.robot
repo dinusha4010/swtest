@@ -27,4 +27,7 @@ Verify All Product Categories Have Landing Page
         
     END
     Close Browser
+*** Test Cases ***
+Verify search feature from main page using keyword 'PS5'
+        
         
