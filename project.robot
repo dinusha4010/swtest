@@ -14,6 +14,17 @@ ${browerOption}=    options=add_argument("disable-search-engine-choice-screen");
 Verify All Product Categories Have Landing Page
     Open Browser    ${pageURL}    ${browser}    ${browerOption}
     Maximize Browser Window
-    Sleep    2s
+    ${count}=    Get Element Count    xpath://*[@id="sitemegamenu"]/nav/ul/li[*]/a
+    ${categoryCount}=     Evaluate   ${count} - 1
+    FOR    ${index}    IN RANGE    1    ${categoryCount}    
+        Log    ${index}
+        ${category}=    Get WebElement    xpath://*[@id="sitemegamenu"]/nav/ul/li[${index}]/a
+        Double Click Element    ${category}
+        
+        
+        Sleep    3S
+        Page Should Contain    ${category.text}
+        
+    END
     Close Browser
         
